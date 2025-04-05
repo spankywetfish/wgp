@@ -88,7 +88,6 @@ fn update_key_pairs() -> std::io::Result<()> {
         let line = line?;
         if line.starts_with("#name = ") {
             let name_only = line.split("#name = ").collect::<String>();
-            //buffer.push_str(&line);
             if let Some(next_line) = lines.next() {
                 let key_only = next_line?.split("PublicKey = ").collect::<String>();
                 buffer.push_str(&(key_only + ":" + &name_only));
